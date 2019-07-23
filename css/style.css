@@ -1,0 +1,14 @@
+
+.icons{
+  font-family: font !important;
+}
+
+@font-face {
+  font-family: font;
+  src: url(../fonts/fontawesome.ttf);
+}
+
+@font-face {
+  font-family: font-joseifin;
+  src: url(../fonts/JosefinSans-Regular.ttf);
+}
