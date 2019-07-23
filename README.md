@@ -1,2 +1,6 @@
-# presentation_normal_form
-Presentation of Normal Form in Formal Languages and Automata 
+# Presentation Normal Form 
+Presentation about Normal Form in Formal Languages and Automata 
+  - Description 
+  - Chonsky Normal Form 
+  - Greibach Normal Form 
+ 
