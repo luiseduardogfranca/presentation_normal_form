@@ -103,6 +103,118 @@
           <div>$1+sin(x)^2+3$</div>
 
         </section>
+
+        <section>
+          
+          <section>
+            <h3>Forma Normal de Chomsky</h3>
+            <br>
+            <div>
+              $ A \implies BC$ ou 
+              $ A \implies a $
+            </div>
+          </section>
+
+          <section>
+            Processo de normalização:
+            <ul>
+              <li>Etapa 1: Simplificação da Gramática</li>
+              <li>Etapa 2: Transformação do lado direito das produções de comprimento maior ou igual a dois</li>
+              <li>Etapa 3: Transformação do lado direito das produções de comprimento maior ou igual a três</li>
+            </ul> 
+          </section>
+
+          <section>
+            <div>
+              Produções:
+              <ul style="list-style-type: none">
+                <li>$ S \implies A = A $</li>
+                <li>$ A \implies ABA | CA | C | (A) $</li>
+                <li>$ B \implies$ + | - | * | / | ^ </li>
+                <li>$ C \implies$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <p>Etapa 1: Simplificação</p>
+            <div>
+              No nosso caso, só existe um caso que deve ser simplificado, que é a 
+              produção $A \implies C$, que é uma variável unitária.
+              Então iremos atribuir as produções de $C$ em $A$.
+            </div>
+          </section>
+
+          <section>
+            <div>
+                <ul style="list-style-type: none">
+                  <li>$ S \implies A = A $</li>
+                  <li>$ A \implies ABA | CA | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y | (A) $</li>
+                  <li>$ B \implies$ + | - | * | / | ^ </li>
+                  <li>$ C \implies$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y</li>
+                </ul>
+            </div>
+          </section>
+
+          <section>
+            <p>Etapa 2: Transformação do lado direito das produções de comprimento maior ou igual a dois</p>
+            <div>
+              Nos casos em que houver variáveis e terminais concatenados no lado direito, como por exemplo 
+              $ S \implies A = A$, iremos criar uma nova variável $X_{=}$ que deriva o terminal $=$ para que tenhamos 
+              somente variáveis. Logo, $ S \implies AX_{=}A $ tal que $ X_{=} \implies = $.
+            </div>
+          </section>
+
+          <section>
+            <p>Aplicando esse processo sucessivamente temos:</p>
+            <div>
+                <ul style="list-style-type: none">
+                  <li>$ S \implies AX_{=}A $</li>
+                  <li>$ A \implies ABA | CA | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y | X_{(}AX_{)} $</li>
+                  <li>$ B \implies$ + | - | * | / | ^ </li>
+                  <li>$ C \implies$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y</li>
+                  <li>$ X_{=} \implies = $</li>
+                  <li>$ X_{(} \implies ( $</li>
+                  <li>$ X_{)} \implies ) $</li>
+                </ul>
+            </div>
+          </section>
+
+          <section>
+            <p>Etapa 3: Transformação do lado direito das produções de comprimento maior ou igual a três</p>
+            <div>
+              Produções que contêm três ou mais variáveis do lado direito precisam ser removidas para que contenham 
+              somente duas variáveis, respeitando a normalização de Chomsky $A \implies BC$. Para isso, criaremos variáveis 
+              sucessivas $D_{i}$, tais que atendem a derivações sucessivas de duas variáveis. Por Exemplo, $ S \implies AC_{=}A $ 
+              que pode ser removida e substituida por $S \implies AD_{1}$, tal que $ D_{1} \implies C_{=}A$.
+            </div>            
+          </section>
+
+          <section>
+              <p>Aplicando esse processo sucessivamente temos (FNC):</p>
+              <div>
+                  <ul style="list-style-type: none">
+                    <li>$ S \implies AD_{1} $</li>
+                    <li>$ A \implies AP_{1} | CA | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y | X_{(}T_{1} $</li>
+                    <li>$ B \implies$ + | - | * | / | ^ </li>
+                    <li>$ C \implies$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y</li>
+                    <li>$ X_{=} \implies = $</li>
+                    <li>$ X_{(} \implies ( $</li>
+                    <li>$ X_{)} \implies ) $</li>
+                    <li>$ D_{1} \implies X_{=}A $</li>
+                    <li>$ P_{1} \implies BA $</li>
+                    <li>$ T_{1} \implies AX_{)} $</li>
+                  </ul>
+              </div>
+            </section>
+
+        </section>
+
+        <section>
+          Referência:
+          Linguagens Formais e Autômatos, 5ed, Paulo Bauth Menezes.
+        </section>
+
       </div>
     </div>
 
