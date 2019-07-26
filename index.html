@@ -12,26 +12,41 @@
     </script>
     <script type="text/javascript"
       src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+
+      MathJax.Hub.Config({
+          "HTML-CSS": {
+            scale: 70
+          }
+        });
     </script>
     <script>hljs.initHighlightingOnLoad();</script>
     <style media="screen">
-      .title{
+      .title-slide {
         color: #b53202 !important;
         font-size: 90pt !important;
         text-align: justify !important;
       }
 
-      .subtitle{
+      .title{
+        text-align: justify;
+      }
+
+      .suptitle {
+        text-align:justify !important; 
+        color:rgba(255, 255, 255, 0.5) !important;
+      }
+
+      .subtitle {
          padding-left: 15px !important;
-         border-left: 2px #b53202 solid !important;
+         color:rgba(255, 255, 255, 0.5) !important;         
          text-align: justify !important;
        }
 
-       .text-right{
+       .text-right {
          text-align: start !important;
        }
 
-      .panel{
+      .panel {
         background-color: rgb(228, 228, 237);
         padding: 40px !important;
         font-size: 18pt !important;
@@ -39,20 +54,51 @@
         width: 100% !important;
       }
 
-      .style-image{
+      .style-image {
         border-style: none !important;
         box-shadow: none !important;
         background-color: transparent !important;
       }
 
-      .effect-panel{
+      .effect-panel {
         box-shadow: 5px 10px 20px rgb(32, 32, 31) !important;
       }
 
-      .img{
+      .img {
         display: inline-block !important; 
         width: 150px !important; 
       }
+
+      .box-blockquote{
+        text-align: justify !important;
+        padding-left: 5% !important;
+        margin-bottom: 5% !important;
+      }
+
+      .title-blockquote{
+        font-size: 35pt !important;
+        margin-bottom: 50px !important;
+        text-transform: none !important;
+      }
+
+      .blockquote{
+        padding-left: 2% !important; 
+        margin-left: 5%  !important; 
+        border-left: 3px #b53202 solid !important;
+        font-size: 25pt !important;
+      }
+
+      .blockquote-without-border{
+        padding-left: 2% !important; 
+        margin-left: 5%  !important; 
+        font-size: 25pt !important;
+      }
+
+      span{
+        font-size: 30pt !important; 
+      }
+
+
 
     </style>
   </head>
@@ -60,12 +106,12 @@
   <body>
     <div class="reveal">
       <div class="slides">
+
         <section>
-          <h4 style="text-align:justify; color:rgba(255, 255, 255, 0.40)">Linguagnes Formais e Automatos </h4>
-          <h1 class="title">Forma Normal</h1>
+          <h4 class="suptitle">Linguagens Formais e Automatos </h4>
+          <h1 class="title-slide">Forma Normal</h1>
         </section>
 
-        </section>
         <section>
           <table style="color:rgb(29, 35, 38); font-size:15pt;">
             <tr>
@@ -96,123 +142,173 @@
           </table>
 
           <p class="text-right" style="font-size:20pt;"><b>Apresentação disponível em</b>: <a href="https://luiseduardogfranca.github.io/presentation_normal_form/">https://luiseduardogfranca.github.io/presentation_normal_form/</a></p>
-
         </section>
 
         <section>
-          <div>$1+sin(x)^2+3$</div>
+          <section>
+            <div class="title">
+              <h3>Introdução</h3>
+            </div>
+          </section>
 
+          <section>
+            <div class="box-blockquote fragment fade-up">
+              <h1 class="title-blockquote">Add o título aqui</h1>
+              <div class="blockquote-without-border">
+                <p>$1+sin(x)^2+3$</p>
+              </div>
+            </div>
+          </section>
         </section>
 
         <section>
           
           <section>
-            <h3>Forma Normal de Chomsky</h3>
-            <br>
-            <div>
-              $ A \implies BC$ ou 
-              $ A \implies a $
+            <div class="title">
+              <h3>Forma Normal de Chomsky</h3>
             </div>
-          </section>
-
-          <section>
-            Processo de normalização:
-            <ul>
-              <li>Etapa 1: Simplificação da Gramática</li>
-              <li>Etapa 2: Transformação do lado direito das produções de comprimento maior ou igual a dois</li>
-              <li>Etapa 3: Transformação do lado direito das produções de comprimento maior ou igual a três</li>
-            </ul> 
-          </section>
-
-          <section>
-            <div>
-              Produções:
-              <ul style="list-style-type: none">
-                <li>$ S \implies A = A $</li>
-                <li>$ A \implies ABA | CA | C | (A) $</li>
-                <li>$ B \implies$ + | - | * | / | ^ </li>
-                <li>$ C \implies$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y</li>
-              </ul>
-            </div>
-          </section>
-
-          <section>
-            <p>Etapa 1: Simplificação</p>
-            <div>
-              No nosso caso, só existe um caso que deve ser simplificado, que é a 
-              produção $A \implies C$, que é uma variável unitária.
-              Então iremos atribuir as produções de $C$ em $A$.
-            </div>
-          </section>
-
-          <section>
-            <div>
-                <ul style="list-style-type: none">
-                  <li>$ S \implies A = A $</li>
-                  <li>$ A \implies ABA | CA | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y | (A) $</li>
-                  <li>$ B \implies$ + | - | * | / | ^ </li>
-                  <li>$ C \implies$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y</li>
-                </ul>
-            </div>
-          </section>
-
-          <section>
-            <p>Etapa 2: Transformação do lado direito das produções de comprimento maior ou igual a dois</p>
-            <div>
-              Nos casos em que houver variáveis e terminais concatenados no lado direito, como por exemplo 
-              $ S \implies A = A$, iremos criar uma nova variável $X_{=}$ que deriva o terminal $=$ para que tenhamos 
-              somente variáveis. Logo, $ S \implies AX_{=}A $ tal que $ X_{=} \implies = $.
-            </div>
-          </section>
-
-          <section>
-            <p>Aplicando esse processo sucessivamente temos:</p>
-            <div>
-                <ul style="list-style-type: none">
-                  <li>$ S \implies AX_{=}A $</li>
-                  <li>$ A \implies ABA | CA | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y | X_{(}AX_{)} $</li>
-                  <li>$ B \implies$ + | - | * | / | ^ </li>
-                  <li>$ C \implies$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y</li>
-                  <li>$ X_{=} \implies = $</li>
-                  <li>$ X_{(} \implies ( $</li>
-                  <li>$ X_{)} \implies ) $</li>
-                </ul>
-            </div>
-          </section>
-
-          <section>
-            <p>Etapa 3: Transformação do lado direito das produções de comprimento maior ou igual a três</p>
-            <div>
-              Produções que contêm três ou mais variáveis do lado direito precisam ser removidas para que contenham 
-              somente duas variáveis, respeitando a normalização de Chomsky $A \implies BC$. Para isso, criaremos variáveis 
-              sucessivas $D_{i}$, tais que atendem a derivações sucessivas de duas variáveis. Por Exemplo, $ S \implies AC_{=}A $ 
-              que pode ser removida e substituida por $S \implies AD_{1}$, tal que $ D_{1} \implies C_{=}A$.
-            </div>            
-          </section>
-
-          <section>
-              <p>Aplicando esse processo sucessivamente temos (FNC):</p>
+            <div class="subtitle">
               <div>
-                  <ul style="list-style-type: none">
-                    <li>$ S \implies AD_{1} $</li>
-                    <li>$ A \implies AP_{1} | CA | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y | X_{(}T_{1} $</li>
-                    <li>$ B \implies$ + | - | * | / | ^ </li>
-                    <li>$ C \implies$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y</li>
-                    <li>$ X_{=} \implies = $</li>
-                    <li>$ X_{(} \implies ( $</li>
-                    <li>$ X_{)} \implies ) $</li>
-                    <li>$ D_{1} \implies X_{=}A $</li>
-                    <li>$ P_{1} \implies BA $</li>
-                    <li>$ T_{1} \implies AX_{)} $</li>
-                  </ul>
+                $ A \implies BC$ ou 
+                $ A \implies a $
               </div>
-            </section>
+            </div>
+          </section>
 
+          <section>
+            <div class="box-blockquote fragment fade-up">
+              <h1 class="title-blockquote">Processo de normalização:</h1>
+              <div class="blockquote-without-border">
+                <ul>
+                  <li><p><b>Etapa 1</b>: Simplificação da Gramática</p></li>
+                  <li><p><b>Etapa 2</b>: Transformação do lado direito das produções de comprimento maior ou igual a dois</p></li>
+                  <li><p><b>Etapa 3</b>: Transformação do lado direito das produções de comprimento maior ou igual a três</p></li>
+                </ul>
+              </div>
+            </div>         
+          </section>
+
+          <section>
+            <div class="box-blockquote fragment fade-up">
+              <h1 class="title-blockquote">Produções</h1>
+              <div class="blockquote">
+                <p>$ S \implies A = A $</p>
+                <p>$ A \implies ABA | CA | C | (A) $</p>
+                <p>$ B \implies$ + | - | * | / | ^</p>
+                <p>$ C \implies$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div class="box-blockquote fragment fade-up">
+              <h1 class="title-blockquote"><b>Etapa 1</b>: <span>Simplificação</span></h1>
+              <div class="blockquote">
+                No nosso caso, só existe um caso que deve ser simplificado, que é a
+                produção $A \implies C$, que é uma variável unitária.
+                Então iremos atribuir as produções de $C$ em $A$.
+              </div>
+            </div>
+          </section>
+
+          <section>
+
+            <div class="box-blockquote fragment fade-up">
+              <h1 class="title-blockquote"><b>Etapa 1</b>: <span>Simplificação</span></h1>
+              <div class="blockquote">
+                <p>$ S \implies A = A $</p>
+                <p>$ A \implies ABA | CA | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y | (A) $</p>
+                <p>$ B \implies$ + | - | * | / | ^</p>
+                <p>$ C \implies$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div class="box-blockquote fragment fade-up">
+              <h1 class="title-blockquote"><b>Etapa 2</b>: <span>Transformação do lado direito das produções de comprimento maior ou igual a dois</span></h1>
+              <div class="blockquote">
+                Nos casos em que houver variáveis e terminais concatenados no lado direito, como por exemplo
+                $ S \implies A = A$, iremos criar uma nova variável $X_{=}$ que deriva o terminal $=$ para que tenhamos
+                somente variáveis. Logo, $ S \implies AX_{=}A $ tal que $ X_{=} \implies = $.
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div class="box-blockquote fragment fade-up">
+              <h1 class="title-blockquote"><b>Etapa 2</b>: <span>Aplicando esse processo sucessivamente temos</span></h1>
+              <div class="blockquote">
+                <p>$ S \implies AX_{=}A $</p>
+                <p>$ A \implies ABA | CA | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y | X_{(}AX_{)} $</p>
+                <p>$ B \implies$ + | - | * | / | ^ </p>
+                <p>$ C \implies$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y</p>
+                <p>$ X_{=} \implies = $</p>
+                <p>$ X_{(} \implies ( $</p>
+                <p>$ X_{)} \implies ) $</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div class="box-blockquote fragment fade-up">
+              <h1 class="title-blockquote"><b>Etapa 3</b>: <span>Transformação do lado direito das produções de comprimento maior ou igual a três</span></h1>
+              <div class="blockquote">
+                Produções que contêm três ou mais variáveis do lado direito precisam ser removidas para que contenham
+                somente duas variáveis, respeitando a normalização de Chomsky $A \implies BC$. Para isso, criaremos variáveis
+                sucessivas $D_{i}$, tais que atendem a derivações sucessivas de duas variáveis. Por Exemplo, $ S \implies AC_{=}A $
+                que pode ser removida e substituida por $S \implies AD_{1}$, tal que $ D_{1} \implies C_{=}A$.
+              </div>
+            </div>           
+          </section>
+
+          <section>
+            <div class="box-blockquote fragment fade-up">
+              <h1 class="title-blockquote"><b>Etapa 3</b>: Aplicando esse processo sucessivamente temos (FNC):</span></h1>
+              <div class="blockquote">
+                <p>$ S \implies AD_{1} $</p>
+                <p>$ A \implies AP_{1} | CA | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y | X_{(}T_{1} $</p>
+                <p>$ B \implies$ + | - | * | / | ^ </p>
+                <p>$ C \implies$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y</p>
+                <p>$ X_{=} \implies = $</p>
+                <p>$ X_{(} \implies ( $</p>
+                <p>$ X_{)} \implies ) $</p>
+                <p>$ D_{1} \implies X_{=}A $</p>
+                <p>$ P_{1} \implies BA $</p>
+                <p>$ T_{1} \implies AX_{)} $</p>
+              </div>
+            </div>
+          </section>
         </section>
 
         <section>
-          Referência:
-          Linguagens Formais e Autômatos, 5ed, Paulo Bauth Menezes.
+          <section>
+            <div class="title">
+              <h3>Forma Normal de Greibach</h3>
+            </div>
+            <div class="subtitle">
+              <div>
+                coloca algo aqui...
+              </div>
+            </div>
+          </section>
+
+          <section>
+
+          </section>
+
+          <section>
+            
+          </section>
+        </section>
+
+        <section>
+          <div class="title">
+            <h3>Referência</h3>
+            <div class="subtitle">
+              <span>Linguagens Formais e Autômatos, 5º ed., Paulo Bauth Menezes</span>
+            </div>
+          </div>
         </section>
 
       </div>
