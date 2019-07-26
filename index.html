@@ -146,19 +146,153 @@
 
         <section>
           <section>
-            <div class="title">
-              <h3>Introdução</h3>
+            <h3>Forma normal de Chomsky</h3>
+            <div>
+              $ A \implies BC$ ou 
+              $ A \implies a $
+            </div>
+            
+            <h3>Forma normal de Greibach</h3>
+            <div>
+              $ A \implies a\alpha$ 
+            </div>
+            <br>
+            Onde $a$ é um terminal qualquer e $\alpha$ é uma palavra (cadeia) de variáveis
+          </section>
+
+          <section>
+            <div class="box-blockquote fragment fade-up">
+              <h1 class="title-blockquote">Gramática utilizada</h1>
+              <div>
+                <div class="subtitle">
+                  G = ({S, A, B, C}, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, +, -, *, 
+                    /, ^, (, ), x, y}, R, S)
+                </div>
+                <div class="blockquote">
+                  <p>$R : S \implies A = A $</p>
+                  <p>$ A \implies ABA | CA | C | (A) $</p>
+                  <p>$ B \implies$ + | - | * | / | ^ </p>
+                  <p>$ C \implies$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y</p>
+                </div>
+              </div>
             </div>
           </section>
 
           <section>
             <div class="box-blockquote fragment fade-up">
-              <h1 class="title-blockquote">Add o título aqui</h1>
+              <h1 class="title-blockquote">Processo de simplicação da Gramática:</h1>
               <div class="blockquote-without-border">
-                <p>$1+sin(x)^2+3$</p>
+                <ul>
+                  <li><p><b>Etapa 1</b>: Eliminar produções vazias</p></li>
+                  <li><p><b>Etapa 2</b>: Eliminar produções unitárias</p></li>
+                  <li><p><b>Etapa 3</b>: Eliminar produções inalcançáveis</p></li>
+                </ul>
               </div>
             </div>
           </section>
+            
+          <section>
+            <div class="box-blockquote fragment fade-up">
+              <h1 class="title-blockquote">Eliminando produções unitárias</h1>
+              <div class="subtitle">
+                Regras de produção não simplificadas
+              </div>
+              <div class="blockquote">
+                <p>$ S \implies aBa $</p>
+                <p>$ B \implies b | \epsilon $</p>
+              </div>
+              <div class="subtitle">
+                  Regras de produção simplificadas
+                </div>
+              <div class="blockquote">
+                <p>$ S \implies aa | aba $</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div class="box-blockquote fragment fade-up">
+              <h1 class="title-blockquote">Eliminando produções vazias</h1>
+              <div class="subtitle">
+                Regras de produção não simplificadas
+              </div>
+              <div class="blockquote">
+                <p>$ S \implies aBa $</p>
+                <p>$ B \implies C | b $</p>
+                <p>$ C \implies c | d $</p>
+              </div>
+              <div class="subtitle">
+                  Regras de produção simplificadas
+                </div>
+              <div class="blockquote">
+                <p>$ S \implies aBa $</p>
+                <p>$ B \implies c | d | b $</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div class="box-blockquote fragment fade-up">
+              <h1 class="title-blockquote">Eliminando produções inalcançáveis</h1>
+              <div class="subtitle">
+                Regras de produção não simplificadas
+              </div>
+              <div class="blockquote">
+                <p>$ S \implies aBa $</p>
+                <p>$ B \implies bB | b $</p>
+                <p>$ C \implies c | d $</p>
+              </div>
+              <div class="subtitle">
+                  Regras de produção simplificadas
+                </div>
+              <div class="blockquote">
+                <p>$ S \implies aBa $</p>
+                <p>$ B \implies bB | b $</p>
+              </div>
+            </div>
+          </section>
+          
+          <section>
+            <div class="box-blockquote fragment fade-up">
+                <h1 class="title-blockquote"><b>Etapa 1</b>: <span>Simplificação</span></h1>
+                <div class="blockquote">
+                  No nosso caso, só existe um caso que deve ser simplificado, que é a
+                  produção $A \implies C$, que é uma variável unitária.
+                  Então iremos atribuir as produções de $C$ em $A$.
+                </div>
+              </div>
+          </section>
+
+          <section>
+            <div class="box-blockquote fragment fade-up">
+                <h1 class="title-blockquote">Aplicando essa simplificação</h1>
+                <div class="blockquote">
+                  <p>$ S \implies A = A $</p>
+                  <p>$ A \implies ABA | CA | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y | (A) $</p>
+                  <p>$ B \implies$ + | - | * | / | ^</p>
+                  <p>$ C \implies$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y</p>
+                </div>
+              </div>
+          </section>
+
+          <section>
+            <div class="box-blockquote fragment fade-up">
+                <h1 class="title-blockquote">Gramática resultante</h1>
+                <div>
+                  <div class="subtitle">
+                    G = ({S, A, B, C}, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, +, -, *, 
+                      /, ^, (, ), x, y}, R, S)
+                  </div>
+                  <div class="blockquote">
+                    <p>$ S \implies A = A $</p>
+                    <p>$ A \implies ABA | CA | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y | (A) $</p>
+                    <p>$ B \implies$ + | - | * | / | ^</p>
+                    <p>$ C \implies$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y</p>
+                  </div>
+                </div>
+              </div>
+          </section>
+
         </section>
 
         <section>
@@ -177,12 +311,11 @@
 
           <section>
             <div class="box-blockquote fragment fade-up">
-              <h1 class="title-blockquote">Processo de normalização:</h1>
+              <h1 class="title-blockquote">Processo de normalização a partir da Gramática simplificada:</h1>
               <div class="blockquote-without-border">
                 <ul>
-                  <li><p><b>Etapa 1</b>: Simplificação da Gramática</p></li>
-                  <li><p><b>Etapa 2</b>: Transformação do lado direito das produções de comprimento maior ou igual a dois</p></li>
-                  <li><p><b>Etapa 3</b>: Transformação do lado direito das produções de comprimento maior ou igual a três</p></li>
+                  <li><p><b>Etapa 1</b>: Transformação do lado direito das produções de comprimento maior ou igual a dois</p></li>
+                  <li><p><b>Etapa 2</b>: Transformação do lado direito das produções de comprimento maior ou igual a três</p></li>
                 </ul>
               </div>
             </div>         
@@ -191,30 +324,6 @@
           <section>
             <div class="box-blockquote fragment fade-up">
               <h1 class="title-blockquote">Produções</h1>
-              <div class="blockquote">
-                <p>$ S \implies A = A $</p>
-                <p>$ A \implies ABA | CA | C | (A) $</p>
-                <p>$ B \implies$ + | - | * | / | ^</p>
-                <p>$ C \implies$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y</p>
-              </div>
-            </div>
-          </section>
-
-          <section>
-            <div class="box-blockquote fragment fade-up">
-              <h1 class="title-blockquote"><b>Etapa 1</b>: <span>Simplificação</span></h1>
-              <div class="blockquote">
-                No nosso caso, só existe um caso que deve ser simplificado, que é a
-                produção $A \implies C$, que é uma variável unitária.
-                Então iremos atribuir as produções de $C$ em $A$.
-              </div>
-            </div>
-          </section>
-
-          <section>
-
-            <div class="box-blockquote fragment fade-up">
-              <h1 class="title-blockquote"><b>Etapa 1</b>: <span>Simplificação</span></h1>
               <div class="blockquote">
                 <p>$ S \implies A = A $</p>
                 <p>$ A \implies ABA | CA | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y | (A) $</p>
@@ -226,7 +335,7 @@
 
           <section>
             <div class="box-blockquote fragment fade-up">
-              <h1 class="title-blockquote"><b>Etapa 2</b>: <span>Transformação do lado direito das produções de comprimento maior ou igual a dois</span></h1>
+              <h1 class="title-blockquote"><b>Etapa 1</b>: <span>Transformação do lado direito das produções de comprimento maior ou igual a dois</span></h1>
               <div class="blockquote">
                 Nos casos em que houver variáveis e terminais concatenados no lado direito, como por exemplo
                 $ S \implies A = A$, iremos criar uma nova variável $X_{=}$ que deriva o terminal $=$ para que tenhamos
@@ -237,7 +346,7 @@
 
           <section>
             <div class="box-blockquote fragment fade-up">
-              <h1 class="title-blockquote"><b>Etapa 2</b>: <span>Aplicando esse processo sucessivamente temos</span></h1>
+              <h1 class="title-blockquote"><b>Etapa 1</b>: <span>Aplicando esse processo sucessivamente temos</span></h1>
               <div class="blockquote">
                 <p>$ S \implies AX_{=}A $</p>
                 <p>$ A \implies ABA | CA | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y | X_{(}AX_{)} $</p>
@@ -252,7 +361,7 @@
 
           <section>
             <div class="box-blockquote fragment fade-up">
-              <h1 class="title-blockquote"><b>Etapa 3</b>: <span>Transformação do lado direito das produções de comprimento maior ou igual a três</span></h1>
+              <h1 class="title-blockquote"><b>Etapa 2</b>: <span>Transformação do lado direito das produções de comprimento maior ou igual a três</span></h1>
               <div class="blockquote">
                 Produções que contêm três ou mais variáveis do lado direito precisam ser removidas para que contenham
                 somente duas variáveis, respeitando a normalização de Chomsky $A \implies BC$. Para isso, criaremos variáveis
@@ -264,7 +373,7 @@
 
           <section>
             <div class="box-blockquote fragment fade-up">
-              <h1 class="title-blockquote"><b>Etapa 3</b>: Aplicando esse processo sucessivamente temos (FNC):</span></h1>
+              <h1 class="title-blockquote"><b>Etapa 2</b>: Aplicando esse processo sucessivamente temos (FNC):</span></h1>
               <div class="blockquote">
                 <p>$ S \implies AD_{1} $</p>
                 <p>$ A \implies AP_{1} | CA | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y | X_{(}T_{1} $</p>
