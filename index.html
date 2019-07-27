@@ -409,18 +409,167 @@
             </div>
             <div class="subtitle">
               <div>
-                coloca algo aqui...
+                $ A \implies a\alpha $
               </div>
             </div>
           </section>
 
           <section>
-
+            <div class="box-blockquote fragment fade-up">
+              <h1 class="title-blockquote">Processo de normalização:</h1>
+              <div class="blockquote-without-border">
+                <ul>
+                  <li><p><b>Etapa 1</b>: Simplificação</p></li>
+                  <li><p><b>Etapa 2</b>: Renomeação das variáveis em uma ordem crescete qualquer</p></li>
+                  <li><p><b>Etapa 3</b>: Transformação de produções para a forma $A_{r} \implies A_{s}\alpha$, em que $r \leq s$</p></li>
+                  <li><p><b>Etapa 4</b>: Exclusão das recursões da forma $A_{r} \implies A_{r}\alpha$</p></li>
+                  <li><p><b>Etapa 5</b>: Um terminal no início do lado direito de cada produção</p></li>
+                  <li><p><b>Etapa 6</b>: Produções a forma $A \implies a\alpha$ em que $\alpha$ é composta por variáveis</p></li>
+                </ul>
+              </div>
+            </div>         
           </section>
 
           <section>
-
+            <div class="box-blockquote fragment fade-up">
+              <h1 class="title-blockquote">Produções já simplificada (Etapa 1)</h1>
+              <div class="blockquote">
+                <p>$ S \implies A = A $</p>
+                <p>$ A \implies ABA | CA | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y | (A) $</p>
+                <p>$ B \implies$ + | - | * | / | ^</p>
+                <p>$ C \implies$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y</p>
+              </div>
+            </div>
           </section>
+
+          <section>
+            <div class="box-blockquote fragment fade-up">
+              <h1 class="title-blockquote">Etapa 2: Renomeação das variáveis em uma ordem crescente qualquer</h1>
+              <div class="blockquote">
+                <p>$ A_{1} \implies A_{2} = A_{2} $</p>
+                <p>$ A_{2} \implies A_{2}A_{3}A_{2} | A_{4}A_{2} | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y | (A_{2}) $</p>
+                <p>$ A_{3} \implies$ + | - | * | / | ^</p>
+                <p>$ A_{4} \implies$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div class="box-blockquote fragment fade-up">
+              <h1 class="title-blockquote">Etapa 3: Transformação de produções para a forma $A_{r} \implies A_{s}\alpha$, em que $r \leq s$ (OK!)</h1>
+              <div class="blockquote">
+                <p>$ A_{1} \implies A_{2} = A_{2} $</p>
+                <p>$ A_{2} \implies A_{2}A_{3}A_{2} | A_{4}A_{2} | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y | (A_{2}) $</p>
+                <p>$ A_{3} \implies$ + | - | * | / | ^</p>
+                <p>$ A_{4} \implies$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+              <div class="box-blockquote fragment fade-up">
+                <h1 class="title-blockquote">Etapa 4: Exclusão das recursões da forma $A_{r} \implies A_{r}\alpha$</h1>
+                <p>Exemplo:</p>
+                <div class="blockquote">
+                  <p>$ A_{1} \implies A_{2}b $</p>
+                  <p>$ A_{2} \implies A_{2}A_{1}a | ab$</p>
+                </div>
+                <p>Para resolver tal recursão a esqueda:</p>
+                <div class="blockquote">
+                  <p>$ A_{1} \implies A_{2}b $</p>
+                  <p>$ A_{2} \implies ab | abB $</p>
+                  <p>$ B \implies A_{1}a | A_{1}aB $</p>
+                </div>
+              </div>
+          </section>
+
+          <section>
+              <div class="box-blockquote fragment fade-up">
+                <h1 class="title-blockquote">Etapa 4: Exclusão das recursões da forma $A_{r} \implies A_{r}\alpha$</h1>
+                <div class="blockquote">
+                  <p>$ A_{1} \implies A_{2} = A_{2} $</p>
+                  <p>$ A_{2} \implies A_{4}A_{2} | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y | (A_{2}) $</p>
+                  <p>$ A_{2} \implies A_{4}A_{2}B | 0B | .. | 9B | xB | yB | (A_{2})B$</p>
+                  <p>$ A_{3} \implies$ + | - | * | / | ^</p>
+                  <p>$ A_{4} \implies$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y</p>
+                  <p>$ B \implies A_{3}A_{2} | A_{3}A_{2}B $</p>
+                </div>
+              </div>
+          </section>
+
+          <section>
+              <div class="box-blockquote fragment fade-up">
+                <h1 class="title-blockquote">Etapa 5: Um terminal no início do lado direito de cada produção</h1>
+                <p>Exemplo:</p>
+                <div class="blockquote">
+                  <p>$ A_{1} \implies A_{2}aA_{2} $</p>
+                  <p>$ A_{2} \implies A_{3}abA_{3} | b$</p>
+                  <p>$ A_{3} \implies$ a | b</p>
+                </div>
+                <p>Vai ser substituida por:</p>
+                <div class="blockquote">
+                  <p>$ A_{1} \implies aabA_{3}aA_{2} | babA_{3}aA_{2} | baA_{2} $</p>
+                  <p>$ A_{2} \implies aabA_{3} | babA_{3} | b$</p>
+                  <p>$ A_{3} \implies$ a | b</p>
+                </div>
+              </div>
+          </section>
+
+          <section>
+              <div class="box-blockquote fragment fade-up">
+                <h1 class="title-blockquote">Etapa 5: Um terminal no início do lado direito de cada produção</h1>
+                <div class="blockquote">
+                  <p>$ A_{1} \implies 0A_{2}=A_{2} | .. | 9A_{2}=A_{2} | xA_{2}=A_{2} | yA_{2}=A_{2}$</p>
+                  <p>$ A_{1} \implies 0=A_{2} | .. | 9=A_{2} | x=A_{2} | y=A_{2} |(A_{2})=A_{2}$</p>
+                  <p>$ A_{1} \implies 0A_{2}B=A_{2} | .. | 9A_{2}B=A_{2} | xA_{2}B=A_{2} | yA_{2}B=A_{2} $</p>
+                  <p>$ A_{1} \implies 0B=A_{2} | .. | 9B=A_{2} | xB=A_{2} | yB=A_{2} | (A_{2})B=A_{2} $</p>
+                  <p>$ A_{2} \implies 0A_{2} | .. | 9A_{2} | xA_{2} | yA_{2} | 0 | .. | 9 | x | y | (A_{2}) $</p>
+                  <p>$ A_{2} \implies 0A_{2}B | .. | 9A_{2}B |xA_{2}B | yA_{2}B | 0B | .. | 9B | xB | yB | (A_{2})B$</p>
+                  <p>$ A_{3} \implies$ + | - | * | / | ^</p>
+                  <p>$ A_{4} \implies$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y</p>
+                  <p>$ B \implies A_{3}A_{2} | A_{3}A_{2}B $</p>
+                </div>
+              </div>
+          </section>
+
+          <section>
+              <div class="box-blockquote fragment fade-up">
+                <h1 class="title-blockquote">Etapa 5: Um terminal no início do lado direito de cada produção</h1>
+                <div class="blockquote">
+                  <p>$ A_{1} \implies 0A_{2}=A_{2} | .. | 9A_{2}=A_{2} | xA_{2}=A_{2} | yA_{2}=A_{2}$</p>
+                  <p>$ A_{1} \implies 0=A_{2} | .. | 9=A_{2} | x=A_{2} | y=A_{2} |(A_{2})=A_{2}$</p>
+                  <p>$ A_{1} \implies 0A_{2}B=A_{2} | .. | 9A_{2}B=A_{2} | xA_{2}B=A_{2} | yA_{2}B=A_{2} $</p>
+                  <p>$ A_{1} \implies 0B=A_{2} | .. | 9B=A_{2} | xB=A_{2} | yB=A_{2} | (A_{2})B=A_{2} $</p>
+                  <p>$ A_{2} \implies 0A_{2} | .. | 9A_{2} | xA_{2} | yA_{2} | 0 | .. | 9 | x | y | (A_{2}) $</p>
+                  <p>$ A_{2} \implies 0A_{2}B | .. | 9A_{2}B |xA_{2}B | yA_{2}B | 0B | .. | 9B | xB | yB | (A_{2})B$</p>
+                  <p>$ A_{3} \implies$ + | - | * | / | ^</p>
+                  <p>$ A_{4} \implies$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y</p>
+                  <p>$ B \implies +A_{2} | -A_{2} | *A_{2} | /A_{2} | \wedge A_{2}$</p>
+                  <p>$ B \implies +A_{2}B | -A_{2}B | *A_{2}B | /A_{2}B | \wedge A_{2}B $</p>
+                </div>
+              </div>
+          </section>
+
+          <section>
+              <div class="box-blockquote fragment fade-up">
+                <h1 class="title-blockquote">Etapa 6: Produções na forma $A \implies a\alpha$ é composta por variáveis</h1>
+                <div class="blockquote" style="font-size: 2">
+                  <p>$ A_{1} \implies 0A_{2}DA_{2} | .. | 9A_{2}DA_{2} | xA_{2}DA_{2} | yA_{2}DA_{2}$</p>
+                  <p>$ A_{1} \implies 0DA_{2} | .. | 9DA_{2} | xDA_{2} | yDA_{2} |(A_{2}EDA_{2}$</p>
+                  <p>$ A_{1} \implies 0A_{2}BDA_{2} | .. | 9A_{2}BDA_{2} | xA_{2}BDA_{2} | yA_{2}BDA_{2} $</p>
+                  <p>$ A_{1} \implies 0BDA_{2} | .. | 9BDA_{2} | xBDA_{2} | yBDA_{2} | (A_{2}EBDA_{2} $</p>
+                  <p>$ A_{2} \implies 0A_{2} | .. | 9A_{2} | xA_{2} | yA_{2} | 0 | .. | 9 | x | y | (A_{2}E $</p>
+                  <p>$ A_{2} \implies 0A_{2}B | .. | 9A_{2}B |xA_{2}B | yA_{2}B | 0B | .. | 9B | xB | yB | (A_{2}EB$</p>
+                  <p>$ A_{3} \implies$ + | - | * | / | ^</p>
+                  <p>$ A_{4} \implies$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | x | y</p>
+                  <p>$ B \implies +A_{2} | -A_{2} | *A_{2} | /A_{2} | \wedge A_{2}$</p>
+                  <p>$ B \implies +A_{2}B | -A_{2}B | *A_{2}B | /A_{2}B | \wedge A_{2}B $</p>
+                  <p>$ D \implies =$</p>
+                  <p>$ E \implies )$</p>
+                </div>
+              </div>
+          </section>
+
         </section>
 
         <section>
